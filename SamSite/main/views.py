@@ -11,5 +11,6 @@ def user(response, sname):
 
 def index(response, id):
     lst = TList.objects.get(id=id)
-    return HttpResponse(f"{lst.name}")
+    item = lst.item_set.get(id=1)
+    return HttpResponse(f"<h1>{lst.name}</h1><br></br><p>{(item.text)}</p>")
 
