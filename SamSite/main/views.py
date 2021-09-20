@@ -11,6 +11,5 @@ def user(response, sname):
 
 def index(response, id):
     lst = TList.objects.get(id=id)
-    item = lst.item_set.get(id=1)
-    return render(response, "main/index.html", {"list": lst, "item": item})
+    return render(response, "main/index.html", {"list": lst})
 
