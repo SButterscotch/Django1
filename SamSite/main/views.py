@@ -4,12 +4,12 @@ from .models import TList, Item
 # Create your views here.
 
 def home(response):
-    return HttpResponse(f"<h1>This is Homepage</h1>")
+    return render(response, "main/home.html", {})
 
 def user(response, sname):
-    return HttpResponse(f"Hi {sname}, wassup?")
+    return render(response, "main/user.html", {"name": sname, "length": str(len(sname))})
 
 def index(response, id):
     lst = TList.objects.get(id=id)
-    return HttpResponse(f"{lst.name}")
+    return render(response, "main/index.html", {"list": lst})
 
